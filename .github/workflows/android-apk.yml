@@ -47,36 +47,28 @@ jobs:
       - name: Build debug APK
         run: ./android/build-apk.sh
 
-      - name: Package APK and installation notes
+      - name: Stage APK
         run: |
           mkdir -p release
-          cp android/app/build/outputs/apk/debug/app-debug.apk release/Deisa-1.0.0-debug.apk
-          cat > release/INSTALL.txt <<'EOF'
-          Deisa Android debug APK (signed with the standard debug key).
+          cp android/app/build/outputs/apk/debug/app-debug.apk release/Deisa.apk
 
-          Minimum Android version: Android 5.0 (API 21).
-          On Xiaomi MIUI/HyperOS, if prompted, allow “Install unknown apps” for the app used to open this ZIP/APK. Only install APKs from a trusted source.
-          EOF
-          cd release
-          zip -9 Deisa-Android-APK.zip Deisa-1.0.0-debug.apk INSTALL.txt
-
-      - name: Upload APK ZIP
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v6
         with:
-          name: Deisa-Android-APK
-          path: release/Deisa-Android-APK.zip
+          name: Deisa-APK
+          path: release/Deisa.apk
           if-no-files-found: error
           retention-days: 30
 
-      - name: Place requested ZIP in the build branch
+      - name: Place requested APK in the build branch
         run: |
-          cp release/Deisa-Android-APK.zip Deisa-Android-APK.zip
+          cp release/Deisa.apk Deisa.apk
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Deisa-Android-APK.zip
+          git add Deisa.apk
           if git diff --cached --quiet; then
-            echo "The APK ZIP is already current."
+            echo "The APK is already current."
             exit 0
           fi
-          git commit -m "Add Deisa Android APK ZIP"
+          git commit -m "Add Deisa Android APK"
           git push origin "HEAD:${GITHUB_REF}"
