@@ -35,8 +35,8 @@ jobs:
       - name: Install Android SDK
         uses: android-actions/setup-android@v4.0.4
 
-      - name: Install Android 17 platform and compatible build tools
-        run: sdkmanager "platforms;android-37" "build-tools;36.0.0"
+      - name: Install Android 16 platform and compatible build tools
+        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
 
       - name: Install Gradle 9.6.0
         run: |

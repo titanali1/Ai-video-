@@ -12,9 +12,9 @@ python3 -m http.server 8000 --bind 0.0.0.0
 
 ## ساخت APK اندروید
 
-پروژه‌ی بومی WebView در پوشه‌ی `android/` قرار دارد؛ فایل‌های وب داخل APK به‌صورت محلی سرو می‌شوند و انتخاب تصویر با انتخاب‌گر سیستمی است، بدون مجوز کلی حافظه. تنظیمات ساخت: حداقل Android 5.0 / API 21، `compileSdk 37` برای Android 17 و `targetSdk 36`.
+پروژه‌ی بومی WebView در پوشه‌ی `android/` قرار دارد؛ فایل‌های وب داخل APK به‌صورت محلی سرو می‌شوند و انتخاب تصویر با انتخاب‌گر سیستمی است، بدون مجوز کلی حافظه. تنظیمات ساخت: حداقل Android 5.0 / API 21، `compileSdk 36` و `targetSdk 36` برای Android 16؛ اپ از API اختصاصی 37 استفاده نمی‌کند و برای نصب روی نسخه‌های جدیدتر نیز محدودیت نسخه‌ی سیستم ندارد.
 
-با JDK 17، Gradle 9.6.0، Android SDK Platform 37 و Build Tools 36.0.0:
+با JDK 17، Gradle 9.6.0، Android SDK Platform 36 و Build Tools 36.0.0:
 
 ```bash
 cd android

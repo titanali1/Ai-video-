@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace 'com.deisa.aistudio'
-    compileSdk 37
+    compileSdk 36
 
     defaultConfig {
         applicationId 'com.deisa.aistudio'
@@ -36,6 +36,6 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core:1.19.0'
+    implementation 'androidx.core:core:1.17.0'
     implementation 'androidx.webkit:webkit:1.14.0'
 }
