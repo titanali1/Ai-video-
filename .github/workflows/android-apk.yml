@@ -44,13 +44,37 @@ jobs:
           unzip -q "$RUNNER_TEMP/gradle-9.6.0-bin.zip" -d "$RUNNER_TEMP"
           echo "$RUNNER_TEMP/gradle-9.6.0/bin" >> "$GITHUB_PATH"
 
-      - name: Build debug APK
-        run: ./android/build-apk.sh
+      - name: Build release variant
+        run: ./android/build-release-apk.sh
 
-      - name: Stage APK
+      - name: Sign release APK for installation
         run: |
+          set -eu
+          KEYSTORE="$RUNNER_TEMP/deisa-release.p12"
+          DEISA_SIGNING_PASSWORD="$(openssl rand -hex 32)"
+          export DEISA_SIGNING_PASSWORD
+          keytool -genkeypair -v \
+            -keystore "$KEYSTORE" \
+            -storetype PKCS12 \
+            -storepass "$DEISA_SIGNING_PASSWORD" \
+            -keypass "$DEISA_SIGNING_PASSWORD" \
+            -alias deisa-release \
+            -keyalg RSA -keysize 3072 -validity 10000 \
+            -dname "CN=Deisa Android Release, O=Deisa"
           mkdir -p release
-          cp android/app/build/outputs/apk/debug/app-debug.apk release/Deisa.apk
+          "$ANDROID_HOME/build-tools/36.0.0/apksigner" sign \
+            --ks "$KEYSTORE" \
+            --ks-key-alias deisa-release \
+            --ks-pass env:DEISA_SIGNING_PASSWORD \
+            --key-pass env:DEISA_SIGNING_PASSWORD \
+            --v1-signing-enabled true \
+            --v2-signing-enabled true \
+            --v3-signing-enabled true \
+            --out release/Deisa.apk \
+            android/app/build/outputs/apk/release/app-release-unsigned.apk
+          "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify \
+            --min-sdk-version 21 --verbose release/Deisa.apk
+          rm -f "$KEYSTORE"
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v6
