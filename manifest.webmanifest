@@ -1,0 +1,16 @@
+{
+  "name": "Deisa | استودیوی خلاقیت هوش مصنوعی",
+  "short_name": "Deisa",
+  "description": "استودیوی موبایل هوش مصنوعی برای ایده‌پردازی و ساخت ویدیو، تصویر و صدا.",
+  "lang": "fa-IR",
+  "dir": "rtl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0c0c12",
+  "theme_color": "#0c0c12",
+  "icons": [
+    { "src": "/assets/deisa-mark.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
