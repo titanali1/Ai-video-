@@ -33,7 +33,7 @@ jobs:
           java-version: '17'
 
       - name: Install Android SDK
-        uses: android-actions/setup-android@v6.0.1
+        uses: android-actions/setup-android@v4.0.4
 
       - name: Install Android 35 platform and build tools
         run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
