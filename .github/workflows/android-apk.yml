@@ -35,14 +35,14 @@ jobs:
       - name: Install Android SDK
         uses: android-actions/setup-android@v4.0.4
 
-      - name: Install Android 35 platform and build tools
-        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+      - name: Install Android 17 platform and compatible build tools
+        run: sdkmanager "platforms;android-37" "build-tools;36.0.0"
 
-      - name: Install Gradle 8.9
+      - name: Install Gradle 9.6.0
         run: |
-          curl --fail --location --retry 3 https://services.gradle.org/distributions/gradle-8.9-bin.zip --output "$RUNNER_TEMP/gradle-8.9-bin.zip"
-          unzip -q "$RUNNER_TEMP/gradle-8.9-bin.zip" -d "$RUNNER_TEMP"
-          echo "$RUNNER_TEMP/gradle-8.9/bin" >> "$GITHUB_PATH"
+          curl --fail --location --retry 3 https://services.gradle.org/distributions/gradle-9.6.0-bin.zip --output "$RUNNER_TEMP/gradle-9.6.0-bin.zip"
+          unzip -q "$RUNNER_TEMP/gradle-9.6.0-bin.zip" -d "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/gradle-9.6.0/bin" >> "$GITHUB_PATH"
 
       - name: Build debug APK
         run: ./android/build-apk.sh

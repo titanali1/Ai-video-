@@ -7,7 +7,7 @@ if ! command -v java >/dev/null 2>&1; then
   exit 1
 fi
 if ! command -v gradle >/dev/null 2>&1; then
-  echo "ERROR: Gradle 8.9+ is required. Android Studio can download the configured Android Gradle Plugin and SDK." >&2
+  echo "ERROR: Gradle 9.6.0+ is required. Android Studio can download the configured Android Gradle Plugin and SDK." >&2
   exit 1
 fi
 
