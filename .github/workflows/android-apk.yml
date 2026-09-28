@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build-apk:
@@ -67,3 +67,16 @@ jobs:
           path: release/Deisa-Android-APK.zip
           if-no-files-found: error
           retention-days: 30
+
+      - name: Place requested ZIP in the build branch
+        run: |
+          cp release/Deisa-Android-APK.zip Deisa-Android-APK.zip
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Deisa-Android-APK.zip
+          if git diff --cached --quiet; then
+            echo "The APK ZIP is already current."
+            exit 0
+          fi
+          git commit -m "Add Deisa Android APK ZIP"
+          git push origin "HEAD:${GITHUB_REF}"
