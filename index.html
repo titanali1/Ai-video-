@@ -29,7 +29,7 @@
         <button class="nav-item" data-page="library"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><span>پروژه‌های من</span><span class="nav-count">۴</span></button>
       </nav>
       <div class="side-bottom">
-        <div class="plan-card"><div class="plan-top"><span class="plan-orb">✦</span><span class="plan-tag">پلن رایگان</span></div><strong>اعتبار این ماه</strong><div class="credits-line"><span>۷۴۰</span><small>از ۱۰۰۰ اعتبار</small></div><div class="credit-track"><i></i></div><button class="upgrade-btn" data-action="upgrade">ارتقا به حرفه‌ای <span>←</span></button></div>
+        <div class="plan-card provider-connect-card"><div class="plan-top"><span class="plan-orb">✦</span><span class="plan-tag">مدل‌های AI</span></div><strong>تولید واقعی تصویر و ویدیو</strong><small class="provider-card-note">ابر: اعتبار محدود · محلی: سخت‌افزار خودتان</small><button class="upgrade-btn" data-action="connection-settings">تنظیم سرویس‌ها <span>←</span></button></div>
         <button class="nav-item help-item" data-action="help"><span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9a2.5 2.5 0 1 1 4.4 1.6c-1.1 1.1-2 1.4-2 3m0 3h.01"/></svg></span><span>راهنما و پشتیبانی</span></button>
         <div class="user-profile"><div class="avatar">س</div><div class="user-text"><strong>سارا محمدی</strong><small>حساب شخصی</small></div><button class="more-btn" aria-label="گزینه‌های بیشتر">···</button></div>
       </div>
@@ -38,14 +38,14 @@
       <header class="topbar">
         <div class="mobile-brand"><img class="brand-mark" src="/assets/deisa-mark.svg" alt="لوگوی Deisa؛ ترکیب مدار هوش مصنوعی و پخش ویدیو" /><b>Deisa</b></div>
         <div class="breadcrumb"><span>فضای کاری</span><span class="crumb-sep">/</span><strong id="crumb-current">خانه</strong></div>
-        <div class="top-actions"><button class="mobile-credit" data-action="upgrade"><span class="sparkle">✦</span> ۷۴۰</button><button class="icon-button notification-btn" aria-label="اعلان‌ها" data-action="notifications"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-8 12h4"/></svg><i></i></button><div class="top-avatar">س</div></div>
+        <div class="top-actions"><button class="mobile-credit" data-action="connection-settings">⚙ اتصال AI</button><button class="icon-button notification-btn" aria-label="اعلان‌ها" data-action="notifications"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-8 12h4"/></svg><i></i></button><div class="top-avatar">س</div></div>
       </header>
       <div class="page-content" id="page-content"></div>
       <nav class="mobile-nav" aria-label="منوی پایین"><button class="mobile-nav-item active" data-page="home"><svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7"/><path d="M5 9v11h14V9M9 20v-7h6v7"/></svg><span>خانه</span></button><button class="mobile-nav-item" data-page="create"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m10 9 5 3-5 3zM7 4v3m5-3v3m5-3v3M7 17v3m5-3v3m5-3v3"/></svg><span>ویدیو</span></button><button class="mobile-create" data-page="create"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button><button class="mobile-nav-item" data-page="images"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>تصویر</span></button><button class="mobile-nav-item" data-page="audio"><svg viewBox="0 0 24 24"><path d="M2 10v4m4-8v12m4-15v18m4-13v8m4-12v16m4-11v6"/></svg><span>صدا</span></button><button class="mobile-nav-item" data-page="library"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>پروژه‌ها</span></button></nav>
     </main>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="modal-close" data-action="close-modal" aria-label="بستن">×</button><div class="modal-icon">✦</div><h2 id="modal-title">یک لحظه صبر کن</h2><p id="modal-copy">این قابلیت به‌زودی در دسترس است.</p><button class="primary-btn modal-ok" data-action="close-modal">متوجه شدم</button></div></div>
+  <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="modal-close" data-action="close-modal" aria-label="بستن">×</button><div class="modal-icon">✦</div><h2 id="modal-title">یک لحظه صبر کن</h2><p id="modal-copy">این قابلیت به‌زودی در دسترس است.</p><div id="modal-extra"></div><button class="primary-btn modal-ok" data-action="close-modal">متوجه شدم</button></div></div>
   <script src="/app.js"></script>
 </body>
 </html>

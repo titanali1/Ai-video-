@@ -1,8 +1,13 @@
+# Python runtime/build files
+__pycache__/
+*.py[cod]
+
 # Android/Gradle build output
 .gradle/
 **/.gradle/
 **/build/
 local.properties
+.env
 *.jks
 *.keystore
 *.p12
